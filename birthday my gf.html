@@ -1,0 +1,885 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Happy Birthday, Princess Jeanette 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at top, #54245f 0%, transparent 35%),
+        linear-gradient(135deg, #16051e, #300d32, #150719);
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================== */
+
+    .stars,
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      color: rgba(255,255,255,.8);
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: .2;
+        transform: scale(.7);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 20px;
+      opacity: .55;
+      animation: floatHeart linear infinite;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: .6;
+      }
+
+      90% {
+        opacity: .4;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       MAIN
+    ========================== */
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 18px;
+    }
+
+    .card {
+      width: min(900px, 100%);
+      text-align: center;
+      padding: 45px 30px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 35px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.15);
+    }
+
+    .small-title {
+      font-size: .85rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #ffb6d9;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      line-height: .95;
+      font-weight: 600;
+      background: linear-gradient(
+        90deg,
+        #fff,
+        #ffb8d8,
+        #fff,
+        #ffc5e0
+      );
+      background-size: 300%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+      from {
+        background-position: 0%;
+      }
+
+      to {
+        background-position: 300%;
+      }
+    }
+
+    .name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      color: #ffd0e4;
+      margin-top: 15px;
+      text-shadow: 0 0 30px rgba(255,100,170,.35);
+    }
+
+    .subtitle {
+      max-width: 650px;
+      margin: 25px auto;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,.82);
+    }
+
+    /* =========================
+       CAKE
+    ========================== */
+
+    .cake-wrapper {
+      margin: 35px auto;
+      cursor: pointer;
+      width: 180px;
+      transition: transform .3s;
+    }
+
+    .cake-wrapper:hover {
+      transform: scale(1.06);
+    }
+
+    .cake {
+      position: relative;
+      width: 150px;
+      height: 100px;
+      margin: auto;
+      border-radius: 12px 12px 20px 20px;
+      background: linear-gradient(#ff8fbb, #d84c87);
+      box-shadow:
+        inset 0 -15px rgba(0,0,0,.12),
+        0 15px 30px rgba(0,0,0,.3);
+    }
+
+    .cake::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: -15px;
+      height: 30px;
+      border-radius: 50%;
+      background: #ffd5e5;
+    }
+
+    .candle {
+      position: absolute;
+      width: 10px;
+      height: 45px;
+      background: #fff;
+      top: -55px;
+      left: 70px;
+      border-radius: 4px;
+    }
+
+    .flame {
+      position: absolute;
+      width: 16px;
+      height: 22px;
+      left: -3px;
+      top: -23px;
+      border-radius: 50% 50% 50% 50%;
+      background: #ffd166;
+      box-shadow: 0 0 20px #ff9f1c;
+      animation: flame 1s infinite alternate;
+    }
+
+    @keyframes flame {
+      from {
+        transform: scale(.85) rotate(-3deg);
+      }
+
+      to {
+        transform: scale(1.15) rotate(3deg);
+      }
+    }
+
+    .cake-hint {
+      margin-top: 25px;
+      color: #ffb8d8;
+      font-size: .85rem;
+    }
+
+    /* =========================
+       BUTTON
+    ========================== */
+
+    .btn {
+      border: none;
+      padding: 15px 30px;
+      border-radius: 999px;
+      color: white;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff4f9a, #bd3dff);
+      box-shadow: 0 10px 30px rgba(255,60,150,.3);
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 15px 40px rgba(255,60,150,.45);
+    }
+
+    /* =========================
+       LETTER
+    ========================== */
+
+    .letter {
+      max-width: 700px;
+      margin: 35px auto 0;
+      padding: 30px;
+      border-radius: 25px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      text-align: left;
+
+      opacity: 0;
+      transform: translateY(25px);
+      max-height: 0;
+      overflow: hidden;
+      transition:
+        opacity .7s ease,
+        transform .7s ease,
+        max-height 1s ease;
+    }
+
+    .letter.show {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 900px;
+    }
+
+    .letter h2 {
+      font-family: "Cormorant Garamond", serif;
+      color: #ffbddb;
+      font-size: 2rem;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .letter p {
+      line-height: 1.9;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 15px;
+    }
+
+    .signature {
+      text-align: right;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      color: #ffc2dc;
+    }
+
+    /* =========================
+       REASONS
+    ========================== */
+
+    .reasons {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .reason {
+      padding: 20px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      transition: .3s;
+    }
+
+    .reason:hover {
+      transform: translateY(-5px);
+      background: rgba(255,120,180,.12);
+    }
+
+    .reason span {
+      display: block;
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .reason p {
+      font-size: .82rem;
+      color: rgba(255,255,255,.78);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      margin-top: 40px;
+      color: rgba(255,255,255,.5);
+      font-size: .75rem;
+    }
+
+    .pulse-heart {
+      display: inline-block;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.35);
+      }
+    }
+
+    /* =========================
+       CONFETTI
+    ========================== */
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 8px;
+      height: 14px;
+      z-index: 9999;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform:
+          translateY(-30px)
+          rotate(0deg);
+      }
+
+      100% {
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+      }
+    }
+
+    /* =========================
+       POPUP
+    ========================== */
+
+    .popup {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+
+      background: rgba(10,0,15,.7);
+      backdrop-filter: blur(10px);
+
+      opacity: 0;
+      pointer-events: none;
+      transition: .4s;
+    }
+
+    .popup.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .popup-box {
+      width: min(450px, 100%);
+      padding: 40px 25px;
+      text-align: center;
+      border-radius: 30px;
+      background: linear-gradient(
+        145deg,
+        rgba(90,25,80,.95),
+        rgba(35,10,40,.98)
+      );
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+      animation: popupIn .6s ease;
+    }
+
+    @keyframes popupIn {
+      from {
+        transform: scale(.7);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    .popup-box .big-heart {
+      font-size: 4rem;
+      animation: heartbeat 1s infinite;
+    }
+
+    .popup-box h2 {
+      margin: 15px 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.5rem;
+      color: #ffc4df;
+    }
+
+    .popup-box p {
+      color: rgba(255,255,255,.8);
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 15px;
+      }
+
+      .card {
+        padding: 35px 18px;
+        border-radius: 25px;
+      }
+
+      .small-title {
+        font-size: .7rem;
+        letter-spacing: 3px;
+      }
+
+      .subtitle {
+        font-size: .9rem;
+        line-height: 1.8;
+      }
+
+      .reasons {
+        grid-template-columns: 1fr;
+      }
+
+      .letter {
+        padding: 22px;
+      }
+
+      .letter p {
+        font-size: .88rem;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Background -->
+  <div class="stars" id="stars"></div>
+  <div class="hearts" id="hearts"></div>
+
+  <main class="container">
+
+    <section class="card">
+
+      <div class="small-title">
+        A little birthday surprise for
+      </div>
+
+      <h1>Happy Birthday</h1>
+
+      <div class="name">
+        Princess Jeanette<br>
+        Octavierra Walean
+      </div>
+
+      <p class="subtitle">
+        Today isn't just another day.
+        Today is the day the world became a little more beautiful,
+        because someone as wonderful as you was born.
+        <br><br>
+        So this little corner of the internet is dedicated entirely to you.
+        💗
+      </p>
+
+      <!-- Cake -->
+      <div class="cake-wrapper" onclick="celebrate()">
+
+        <div class="cake">
+          <div class="candle">
+            <div class="flame"></div>
+          </div>
+        </div>
+
+        <div class="cake-hint">
+          ✨ Tap the cake to make a wish ✨
+        </div>
+
+      </div>
+
+      <button class="btn" onclick="openLetter()">
+        💌 Open Your Birthday Letter
+      </button>
+
+      <!-- Letter -->
+      <div class="letter" id="letter">
+
+        <h2>For My Princess 💗</h2>
+
+        <p>
+          Happy Birthday, my love.
+        </p>
+
+        <p>
+          I hope today reminds you of just how special you are.
+          You deserve beautiful moments, genuine happiness,
+          warm hugs, peaceful nights, and all the little things
+          that make your heart smile.
+        </p>
+
+        <p>
+          Thank you for being you.
+          Thank you for the smiles, the memories, the conversations,
+          and all the little moments that somehow become my favorite memories.
+        </p>
+
+        <p>
+          If I could give you one gift that lasts forever,
+          it would be the ability to see yourself through my eyes —
+          because then you would understand just how precious
+          you really are to me.
+        </p>
+
+        <p>
+          May this new chapter of your life bring you closer
+          to every dream you've been quietly wishing for.
+          And wherever life takes you,
+          I hope there will always be reasons for you to smile.
+        </p>
+
+        <p>
+          Happy Birthday, Princess Jeanette.
+          May your heart always be surrounded by love,
+          your days filled with happiness,
+          and your future brighter than every star in the sky.
+        </p>
+
+        <div class="signature">
+          With all my heart,<br>
+          Someone who loves you ❤️
+        </div>
+
+      </div>
+
+      <!-- Reasons -->
+      <div class="reasons">
+
+        <div class="reason">
+          <span>🌷</span>
+          <p>Your smile can make an ordinary day feel special.</p>
+        </div>
+
+        <div class="reason">
+          <span>✨</span>
+          <p>You make beautiful memories without even trying.</p>
+        </div>
+
+        <div class="reason">
+          <span>💗</span>
+          <p>You are someone worth celebrating today and every day.</p>
+        </div>
+
+      </div>
+
+      <footer>
+        Made with <span class="pulse-heart">❤️</span> especially for Jeanette
+      </footer>
+
+    </section>
+
+  </main>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+
+    <div class="popup-box">
+
+      <div class="big-heart">
+        💖
+      </div>
+
+      <h2>Make a Wish</h2>
+
+      <p>
+        Close your eyes for a moment,
+        think of something your heart truly wishes for,
+        and let this new chapter begin with a little magic. ✨
+      </p>
+
+      <button class="btn" onclick="closePopup()">
+        My Wish Is Made 💕
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    /* =========================
+       CREATE STARS
+    ========================== */
+
+    const stars = document.getElementById("stars");
+
+    for (let i = 0; i < 70; i++) {
+
+      const star = document.createElement("div");
+
+      star.className = "star";
+      star.innerHTML = "✦";
+
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+
+      star.style.fontSize =
+        (Math.random() * 8 + 4) + "px";
+
+      star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+      stars.appendChild(star);
+    }
+
+
+    /* =========================
+       FLOATING HEARTS
+    ========================== */
+
+    const hearts = document.getElementById("hearts");
+
+    const heartSymbols = [
+      "♡",
+      "♥",
+      "💗",
+      "💖",
+      "✨"
+    ];
+
+    for (let i = 0; i < 20; i++) {
+
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+
+      heart.innerHTML =
+        heartSymbols[
+          Math.floor(Math.random() * heartSymbols.length)
+        ];
+
+      heart.style.left =
+        Math.random() * 100 + "%";
+
+      heart.style.fontSize =
+        (Math.random() * 15 + 12) + "px";
+
+      heart.style.animationDuration =
+        (Math.random() * 8 + 7) + "s";
+
+      heart.style.animationDelay =
+        Math.random() * 10 + "s";
+
+      hearts.appendChild(heart);
+    }
+
+
+    /* =========================
+       BIRTHDAY CONFETTI
+    ========================== */
+
+    function celebrate() {
+
+      const popup =
+        document.getElementById("popup");
+
+      popup.classList.add("active");
+
+      createConfetti(160);
+
+    }
+
+
+    function createConfetti(amount) {
+
+      const colors = [
+        "#ff4f9a",
+        "#ff8fc7",
+        "#ffd166",
+        "#ffffff",
+        "#c77dff",
+        "#ff6b6b"
+      ];
+
+      for (let i = 0; i < amount; i++) {
+
+        const piece =
+          document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left =
+          Math.random() * 100 + "vw";
+
+        piece.style.background =
+          colors[
+            Math.floor(
+              Math.random() * colors.length
+            )
+          ];
+
+        piece.style.width =
+          (Math.random() * 7 + 5) + "px";
+
+        piece.style.height =
+          (Math.random() * 10 + 8) + "px";
+
+        piece.style.borderRadius =
+          Math.random() > .5 ? "50%" : "2px";
+
+        piece.style.animationDuration =
+          (Math.random() * 3 + 2) + "s";
+
+        piece.style.animationDelay =
+          Math.random() * .8 + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 6000);
+      }
+    }
+
+
+    /* =========================
+       LETTER
+    ========================== */
+
+    function openLetter() {
+
+      const letter =
+        document.getElementById("letter");
+
+      letter.classList.toggle("show");
+
+      if (letter.classList.contains("show")) {
+
+        createConfetti(80);
+
+        setTimeout(() => {
+
+          letter.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+        }, 200);
+      }
+    }
+
+
+    /* =========================
+       CLOSE POPUP
+    ========================== */
+
+    function closePopup() {
+
+      document
+        .getElementById("popup")
+        .classList.remove("active");
+
+    }
+
+
+    /* =========================
+       START SMALL CONFETTI
+       WHEN PAGE LOADS
+    ========================== */
+
+    window.addEventListener("load", () => {
+
+      setTimeout(() => {
+        createConfetti(70);
+      }, 1200);
+
+    });
+
+
+    /* =========================
+       ESCAPE KEY
+    ========================== */
+
+    document.addEventListener("keydown", (event) => {
+
+      if (event.key === "Escape") {
+        closePopup();
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
